@@ -65,13 +65,12 @@ class UsersRolesController extends Controller
      * @param  \App\Models\UsersRoles  $usersRoles
      * @return \Illuminate\Http\Response
      */
-    public function show($usersRoles, Role $role)
+    public function show($usersRoles)
     {
         $findUser = UsersRoles::find($usersRoles);
 
         return view('users.show')
-        ->with('usersRoles', $findUser)
-        ->with('roles', $role);
+        ->with('usersRoles', $findUser);
     }
 
     /**
