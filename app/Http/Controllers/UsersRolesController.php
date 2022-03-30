@@ -66,11 +66,11 @@ class UsersRolesController extends Controller
      * @param  \App\Models\UsersRoles  $usersRoles
      * @return \Illuminate\Http\Response
      */
-    public function show(UsersRoles $usersRoles)
+    public function show(UsersRoles $usersRoles, Role $role)
     {
         return view('users.show')
         ->with('usersRoles', $usersRoles)
-        ->with('roles', Role::all());
+        ->with('roles', $role);
     }
 
     /**

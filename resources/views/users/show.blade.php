@@ -29,7 +29,7 @@
                             <tr class="whitespace-nowrap">
                                 <td class="px-6 py-4 text-sm text-black">{{$usersRoles->full_name}}</td>
                                 <td class="px-6 py-4 text-sm text-black">{{$usersRoles->email_address}}</td>
-                                <td class="px-6 py-4 text-sm text-black">{{$usersRoles->role->role_name}}</td>
+                                <td class="px-6 py-4 text-sm text-black">{{$usersRoles->role_id}}</td>
                                 <td class="px-6 py-4 text-sm text-black">{{$usersRoles->nominated_password}}</td>
                                 <td class="px-6 py-4 text-sm text-black">{{$usersRoles->confirmed_password}}</td>
                                 <td class="px-6 py-4 text-sm text-black">

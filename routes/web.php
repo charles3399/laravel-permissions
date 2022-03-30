@@ -25,7 +25,10 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::group(['middleware' => 'auth'])->group(function() {
-    Route::resource('usersroles', UsersRolesController::class);
-    Route::resource('roles', RoleController::class);
-});
+// Route::group(['middleware' => 'auth'])->group(function() {
+//     Route::resource('usersroles', UsersRolesController::class);
+//     Route::resource('roles', RoleController::class);
+// });
+
+Route::resource('usersroles', UsersRolesController::class);
+Route::resource('roles', RoleController::class);
