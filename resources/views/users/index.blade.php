@@ -19,8 +19,6 @@
                                 <th class="px-4 py-2 text-sm text-black">Full Name</th>
                                 <th class="px-4 py-2 text-sm text-black">Email Address</th>
                                 <th class="px-4 py-2 text-sm text-black">Role</th>
-                                <th class="px-4 py-2 text-sm text-black">Nominated Password</th>
-                                <th class="px-4 py-2 text-sm text-black">Confirmed Password</th>
                                 <th class="px-4 py-2 text-sm text-black">Edit</th>
                                 <th class="px-4 py-2 text-sm text-black">Delete</th>
                             </tr>
@@ -31,8 +29,6 @@
                                 <td class="px-6 py-4 text-sm text-black"><a href="{{route('usersroles.show', $user->id)}}" class="hover:text-green-400">{{$user->full_name}}</a></td>
                                 <td class="px-6 py-4 text-sm text-black">{{$user->email_address}}</td>
                                 <td class="px-6 py-4 text-sm text-black">{{$user->role->role_name}}</td>
-                                <td class="px-6 py-4 text-sm text-black">{{$user->nominated_password}}</td>
-                                <td class="px-6 py-4 text-sm text-black">{{$user->confirmed_password}}</td>
                                 <td class="px-1 py-1 text-sm text-black">
                                     <a href="{{route('usersroles.edit', $user->id)}}" class="px-2 py-1 rounded-md text-white bg-green-600">Edit</a>
                                 </td>
