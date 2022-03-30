@@ -7,7 +7,7 @@
 
     <div class="my-3 mx-auto flex justify-center">
         <a href="{{route('usersroles.create')}}" class="px-2 py-2 my-5 mr-10 bg-indigo-700 text-white rounded-lg">Create a new role</a>
-        <a href="{{route('usersroles.index')}}" class="px-2 py-2 my-5 mr-10 bg-green-700 text-white rounded-lg">Roles dashboard</a>
+        <a href="{{route('usersroles.index')}}" class="px-2 py-2 my-5 mr-10 bg-green-700 text-white rounded-lg">Users dashboard</a>
     </div>
 
     <div class="py-12">
