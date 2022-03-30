@@ -33,7 +33,7 @@
                         </div>
                         <div class="my-2">
                             <label for="role_id">Role: </label>
-                            <select name="role_id" id="role_id">
+                            <select name="role_id" id="role_id" class="my-4 py-2 rounded-md">
                                 @foreach ($roles as $role)
                                     <option value="{{$role->id}}"
 

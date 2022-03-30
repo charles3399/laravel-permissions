@@ -65,10 +65,12 @@ class UsersRolesController extends Controller
      * @param  \App\Models\UsersRoles  $usersRoles
      * @return \Illuminate\Http\Response
      */
-    public function show(UsersRoles $usersRoles, Role $role)
+    public function show($usersRoles, Role $role)
     {
+        $findUser = UsersRoles::find($usersRoles);
+
         return view('users.show')
-        ->with('usersRoles', $usersRoles)
+        ->with('usersRoles', $findUser)
         ->with('roles', $role);
     }
 
@@ -78,10 +80,12 @@ class UsersRolesController extends Controller
      * @param  \App\Models\UsersRoles  $usersRoles
      * @return \Illuminate\Http\Response
      */
-    public function edit(UsersRoles $usersRoles)
+    public function edit($usersRoles)
     {
+        $findUser = UsersRoles::find($usersRoles);
+
         return view('users.edit')
-        ->with('usersRoles', $usersRoles)
+        ->with('usersRoles', $findUser)
         ->with('roles', Role::all());
     }
 
@@ -92,17 +96,19 @@ class UsersRolesController extends Controller
      * @param  \App\Models\UsersRoles  $usersRoles
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UsersRoles $usersRoles)
+    public function update(Request $request, $usersRoles)
     {
         $request->validate([
             'full_name' => 'required',
-            'email_address' => 'required|unique:users_roles,email_address|email',
+            'email_address' => 'required|email',
             'role_id' => 'required',
             'nominated_password' => 'required|min:8|required_with:confirmed_password',
             'confirmed_password' => 'required|min:8|same:nominated_password',
         ]);
 
-        $usersRoles->update([
+        $findUser = UsersRoles::find($usersRoles);
+
+        $findUser->update([
             'full_name' => $request->full_name,
             'email_address' => $request->email_address,
             'role_id' => $request->role_id,
@@ -119,9 +125,11 @@ class UsersRolesController extends Controller
      * @param  \App\Models\UsersRoles  $usersRoles
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UsersRoles $usersRoles)
+    public function destroy($usersRoles)
     {
-        $usersRoles->delete();
+        $findUser = UsersRoles::find($usersRoles);
+
+        $findUser->delete();
 
         return redirect('usersroles');
     }
