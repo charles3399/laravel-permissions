@@ -18,19 +18,20 @@
     </div>
 
     <div class="py-12">
-        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8 text-center">
+        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form action="{{route('roles.store')}}" method="post">
                         @csrf
                         @method('POST')
                         <div class="my-2">
-                            <input type="text" name="role_name" class="my-4 px-3 py-2 rounded-md" placeholder="Role name">
+                            <label for="role_name" class="block mb-2">Role Name: </label>
+                            <input type="text" name="role_name" class="my-4 px-3 py-2 rounded-md w-full" placeholder="Role name">
                         </div>
                         <div class="my-2">
-                            <textarea name="description" id="description" cols="20" rows="5" class="my-4 px-3 py-2 rounded-md" placeholder="Description"></textarea>
+                            <textarea name="description" id="description" cols="20" rows="5" class="my-4 px-3 py-2 rounded-md w-full" placeholder="Description"></textarea>
                         </div>
-                        <button type="submit" class="px-2 py-2 rounded-lg bg-green-700 text-white">Submit</button>
+                        <button type="submit" class="px-2 py-2 rounded-lg bg-green-600 text-white">Submit</button>
                     </form>
                 </div>
             </div>

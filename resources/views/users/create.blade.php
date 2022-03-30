@@ -18,23 +18,23 @@
     </div>
 
     <div class="py-12">
-        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8 text-center">
+        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200 flex justify-start">
+                <div class="p-6 bg-white border-b border-gray-200">
                     <form action="{{route('usersroles.store')}}" method="post">
                         @csrf
                         @method('POST')
                         <div class="my-2">
-                            <label for="full_name">Full Name: </label>
-                            <input type="text" name="full_name" class="my-4 px-3 py-2 rounded-md" placeholder="eg. Juan Dela Cruz..">
+                            <label for="full_name" class="block mb-2">Full Name: </label>
+                            <input type="text" name="full_name" class="my-4 px-3 py-2 rounded-md w-full" placeholder="eg. Juan Dela Cruz..">
                         </div>
                         <div class="my-2">
-                            <label for="email_address">Email: </label>
-                            <input type="text" name="email_address" class="my-4 px-3 py-2 rounded-md" placeholder="sample@gmail.com">
+                            <label for="email_address" class="block mb-2">Email: </label>
+                            <input type="text" name="email_address" class="my-4 px-3 py-2 rounded-md w-full" placeholder="sample@gmail.com">
                         </div>
                         <div class="my-2">
-                            <label for="role_id">Role: </label>
-                            <select name="role_id" id="role_id" class="my-4 py-2 rounded-md">
+                            <label for="role_id" class="block mb-2">Role: </label>
+                            <select name="role_id" id="role_id" class="my-4 py-2 rounded-md w-full">
                                 @foreach ($roles as $role)
                                     <option value="{{$role->id}}">
                                         {{$role->role_name}}
@@ -43,14 +43,14 @@
                             </select>
                         </div>
                         <div class="my-2">
-                            <label for="nominated_password">Nominated Password: </label>
-                            <input type="password" name="nominated_password" class="my-4 px-3 py-2 rounded-md">
+                            <label for="nominated_password" class="block mb-2">Nominated Password: </label>
+                            <input type="password" name="nominated_password" class="my-4 px-3 py-2 rounded-md w-full">
                         </div>
                         <div class="my-2">
-                            <label for="confirmed_password">Confirmed Password: </label>
-                            <input type="password" name="confirmed_password" class="my-4 px-3 py-2 rounded-md">
+                            <label for="confirmed_password" class="block mb-2">Confirmed Password: </label>
+                            <input type="password" name="confirmed_password" class="my-4 px-3 py-2 rounded-md w-full">
                         </div>
-                        <button type="submit" class="px-2 py-2 rounded-lg bg-green-700 text-white">Submit</button>
+                        <button type="submit" class="px-2 py-2 rounded-lg bg-green-700 text-white text-sm">Submit</button>
                     </form>
                 </div>
             </div>

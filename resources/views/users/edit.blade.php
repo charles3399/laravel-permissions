@@ -18,22 +18,23 @@
     </div>
 
     <div class="py-12">
-        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8 text-center">
+        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form action="{{route('usersroles.update', $usersRoles->id)}}" method="post">
                         @csrf
                         @method('PATCH')
-                        <div class="my-2">
-                            <input type="text" name="full_name" class="my-4 px-3 py-2 rounded-md" placeholder="Role name" value="{{$usersRoles->full_name}}">
+                        <div class="my-2" class="block mb-2">
+                            <label for="full_name">Full Name: </label>
+                            <input type="text" name="full_name" class="my-4 px-3 py-2 rounded-md w-full" placeholder="Role name" value="{{$usersRoles->full_name}}">
                         </div>
-                        <div class="my-2">
+                        <div class="my-2" class="block mb-2">
                             <label for="email_address">Email: </label>
-                            <input type="text" name="email_address" class="my-4 px-3 py-2 rounded-md" placeholder="sample@gmail.com" value="{{$usersRoles->email_address}}">
+                            <input type="text" name="email_address" class="my-4 px-3 py-2 rounded-md w-full" placeholder="sample@gmail.com" value="{{$usersRoles->email_address}}">
                         </div>
-                        <div class="my-2">
+                        <div class="my-2" class="block mb-2">
                             <label for="role_id">Role: </label>
-                            <select name="role_id" id="role_id" class="my-4 py-2 rounded-md">
+                            <select name="role_id" id="role_id" class="my-4 px-3 py-2 rounded-md w-full">
                                 @foreach ($roles as $role)
                                     <option value="{{$role->id}}"
 
@@ -49,15 +50,15 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="my-2">
+                        <div class="my-2" class="block mb-2">
                             <label for="nominated_password">Nominated Password: </label>
-                            <input type="password" name="nominated_password" class="my-4 px-3 py-2 rounded-md" value="{{$usersRoles->nominated_password}}">
+                            <input type="password" name="nominated_password" class="my-4 px-3 py-2 rounded-md w-full" value="{{$usersRoles->nominated_password}}">
                         </div>
-                        <div class="my-2">
+                        <div class="my-2" class="block mb-2">
                             <label for="confirmed_password">Confirmed Password: </label>
-                            <input type="password" name="confirmed_password" class="my-4 px-3 py-2 rounded-md" value="{{$usersRoles->confirmed_password}}">
+                            <input type="password" name="confirmed_password" class="my-4 px-3 py-2 rounded-md w-full" value="{{$usersRoles->confirmed_password}}">
                         </div>
-                        <button type="submit" class="px-2 py-2 rounded-lg bg-green-700 text-white">Update</button>
+                        <button type="submit" class="px-2 py-2 rounded-lg bg-green-700 text-white text-sm">Update</button>
                     </form>
                 </div>
             </div>

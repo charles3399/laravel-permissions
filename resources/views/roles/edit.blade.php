@@ -25,12 +25,13 @@
                         @csrf
                         @method('PATCH')
                         <div class="my-2">
-                            <input type="text" name="role_name" class="my-4 px-3 py-2 rounded-md" placeholder="Role name" value="{{$roles->role_name}}">
+                            <label for="role_name" class="block mb-2">Role Name: </label>
+                            <input type="text" name="role_name" class="my-4 px-3 py-2 rounded-md w-full" placeholder="Role name" value="{{$roles->role_name}}">
                         </div>
                         <div class="my-2">
-                            <textarea name="description" id="description" cols="20" rows="5" class="my-4 px-3 py-2 rounded-md" placeholder="Description">{{$roles->description}}</textarea>
+                            <textarea name="description" id="description" cols="20" rows="5" class="my-4 px-3 py-2 rounded-md w-full" placeholder="Description">{{$roles->description}}</textarea>
                         </div>
-                        <button type="submit" class="px-2 py-2 rounded-lg bg-green-700 text-white">Update</button>
+                        <button type="submit" class="px-2 py-2 rounded-lg bg-green-600 text-white">Update</button>
                     </form>
                 </div>
             </div>
