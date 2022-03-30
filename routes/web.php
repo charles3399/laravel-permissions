@@ -25,12 +25,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-
-// Route::get('usersroles/index', [UsersRolesController::class, 'index'])->name('usersroles.index');
-// Route::get('usersroles/create', [UsersRolesController::class, 'create'])->name('usersroles.create');
-// Route::get('usersroles/{usersrole}', [UsersRolesController::class, 'show'])->name('usersroles.show');
-// Route::patch('usersroles/{usersrole}', [UsersRolesController::class, 'update'])->name('usersroles.update');
-// Route::delete('usersroles/{usersrole}', [UsersRolesController::class, 'destroy'])->name('usersroles.destroy');
-// Route::get('usersroles/{usersrole}/edit', [UsersRolesController::class, 'edit'])->name('usersroles.edit');
-Route::resource('usersroles', UsersRolesController::class);
-Route::resource('roles', RoleController::class);
+Route::group(['middleware' => 'auth'])->group(function() {
+    Route::resource('usersroles', UsersRolesController::class);
+    Route::resource('roles', RoleController::class);
+});

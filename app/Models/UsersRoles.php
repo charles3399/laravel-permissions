@@ -17,7 +17,7 @@ class UsersRoles extends Model
         'confirmed_password'
     ];
 
-    public function roles() {
-        return $this->hasOne(Role::class, "id");
+    public function role() {
+        return $this->belongsTo(Role::class);
     }
 }

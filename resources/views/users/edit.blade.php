@@ -21,7 +21,7 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8 text-center">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form action="{{route('usersroles.update',$usersRoles->id)}}" method="post">
+                    <form action="{{route('usersroles.update', $usersRoles->id)}}" method="post">
                         @csrf
                         @method('PATCH')
                         <div class="my-2">
