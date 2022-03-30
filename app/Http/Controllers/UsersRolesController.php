@@ -13,13 +13,12 @@ class UsersRolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Role $role)
+    public function index()
     {
         $usersRoles = UsersRoles::all();
 
         return view('users.index')
-        ->with('usersRoles', $usersRoles)
-        ->with('roles', $role);
+        ->with('usersRoles', $usersRoles);
     }
 
     /**
