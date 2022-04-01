@@ -37,7 +37,7 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'role_name' => 'required',
+            'role_name' => 'required|unique:roles,role_name',
             'description' => 'required',
         ]);
 
@@ -46,7 +46,7 @@ class RoleController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect('roles');
+        return redirect('roles')->with('success', "Role: $request->role_name created");
     }
 
     /**
@@ -91,7 +91,7 @@ class RoleController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect('roles');
+        return redirect('roles')->with('success', "Role: $request->role_name updated");
     }
 
     /**
@@ -104,6 +104,6 @@ class RoleController extends Controller
     {
         $role->delete();
 
-        return redirect('roles');
+        return redirect('roles')->with('warning', "Role deleted");
     }
 }

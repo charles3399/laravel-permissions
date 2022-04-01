@@ -9,6 +9,18 @@
         <a href="{{route('roles.create')}}" class="px-2 py-2 my-5 mr-10 bg-indigo-700 text-white rounded-lg">Create a new role</a>
     </div>
 
+    @if (session()->has('success'))
+        <div class="max-w-3xl px-2 py-2 my-5 mx-auto bg-green-600 text-white rounded-lg flex justify-center">
+            <strong>{{ session('success') }}</strong>
+        </div>
+    @endif
+
+    @if (session()->has('warning'))
+        <div class="max-w-3xl px-2 py-2 my-5 mx-auto bg-red-600 text-white rounded-lg flex justify-center">
+            <strong>{{ session('warning') }}</strong>
+        </div>
+    @endif
+
     <div class="py-12">
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

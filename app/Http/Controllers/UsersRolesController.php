@@ -28,8 +28,15 @@ class UsersRolesController extends Controller
      */
     public function create()
     {
-        return view('users.create')
-        ->with('roles', Role::all());
+        $roleExists = Role::where('id', '>', 0)->exists();
+
+        if($roleExists) {
+            return view('users.create')
+            ->with('roles', Role::all());
+        }
+        else {
+            return redirect()->back()->with('error', 'There are no roles, please create a role first');
+        }
     }
 
     /**
@@ -56,7 +63,7 @@ class UsersRolesController extends Controller
             'confirmed_password' => $request->confirmed_password,
         ]);
 
-        return redirect('usersroles');
+        return redirect('usersroles')->with('success', "User: $request->full_name created successfully");
     }
 
     /**
@@ -115,7 +122,7 @@ class UsersRolesController extends Controller
             'confirmed_password' => $request->confirmed_password,
         ]);
 
-        return redirect('usersroles');
+        return redirect('usersroles')->with('success', "User: $request->full_name updated successfully");
     }
 
     /**
@@ -130,6 +137,6 @@ class UsersRolesController extends Controller
 
         $findUser->delete();
 
-        return redirect('usersroles');
+        return redirect('usersroles')->with('warning', "User deleted");
     }
 }

@@ -26,11 +26,11 @@
                         @method('POST')
                         <div class="my-2">
                             <label for="full_name" class="block mb-2">Full Name: </label>
-                            <input type="text" name="full_name" class="my-4 px-3 py-2 rounded-md w-full" placeholder="eg. Juan Dela Cruz..">
+                            <input type="text" name="full_name" class="my-4 px-3 py-2 rounded-md w-full" placeholder="eg. Juan Dela Cruz.." value="{{ old('full_name') }}">
                         </div>
                         <div class="my-2">
                             <label for="email_address" class="block mb-2">Email: </label>
-                            <input type="text" name="email_address" class="my-4 px-3 py-2 rounded-md w-full" placeholder="sample@gmail.com">
+                            <input type="text" name="email_address" class="my-4 px-3 py-2 rounded-md w-full" placeholder="sample@gmail.com" value="{{ old('email_address') }}">
                         </div>
                         <div class="my-2">
                             <label for="role_id" class="block mb-2">Role: </label>
