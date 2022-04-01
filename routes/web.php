@@ -19,16 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('usersroles', UsersRolesController::class);
-Route::resource('roles', RoleController::class);
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
-// Route::group(['middleware' => 'auth'])->group(function() {
-//     Route::resource('usersroles', UsersRolesController::class);
-//     Route::resource('roles', RoleController::class);
-// });
+Route::resource('usersroles', UsersRolesController::class);
+Route::resource('roles', RoleController::class);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2022 at 08:44 AM
+-- Generation Time: Apr 01, 2022 at 05:25 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -107,6 +107,15 @@ CREATE TABLE `roles` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `role_name`, `description`, `created_at`, `updated_at`) VALUES
+(6, 'Admin', 'The highest role with the highest privileges', '2022-03-31 18:27:28', '2022-03-31 18:55:03'),
+(7, 'Basic', 'Basic privilege, lesser than admin', '2022-03-31 18:28:01', '2022-03-31 18:28:01'),
+(8, 'Beginner', 'The base privilege, lesser than any privileges', '2022-03-31 18:48:49', '2022-03-31 19:22:26');
+
 -- --------------------------------------------------------
 
 --
@@ -124,6 +133,13 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Charles', 'bernaldezsay@gmail.com', NULL, '$2y$10$JK7IeoknvMyy9diLXf5lQe0g7GAO6MQXS7Cf6ocfHe87m4Z.U0EhS', NULL, '2022-03-29 18:23:27', '2022-03-29 18:23:27');
+
 -- --------------------------------------------------------
 
 --
@@ -140,6 +156,16 @@ CREATE TABLE `users_roles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users_roles`
+--
+
+INSERT INTO `users_roles` (`id`, `full_name`, `email_address`, `role_id`, `nominated_password`, `confirmed_password`, `created_at`, `updated_at`) VALUES
+(7, 'Juan Cruz', 'sample@juan.com', 6, '12345678', '12345678', '2022-03-31 18:31:55', '2022-03-31 18:46:03'),
+(8, 'Will Smith', 'willsmith@gmail.com', 7, '12345678', '12345678', '2022-03-31 18:38:50', '2022-03-31 18:38:50'),
+(10, 'LeBron James', 'lebron@lakers.com', 6, '12345678', '12345678', '2022-03-31 18:42:29', '2022-03-31 19:07:44'),
+(13, 'Trae Young', 'trae@nba.com', 8, '12345678', '12345678', '2022-03-31 19:23:08', '2022-03-31 19:23:08');
 
 --
 -- Indexes for dumped tables
@@ -190,7 +216,8 @@ ALTER TABLE `users`
 --
 ALTER TABLE `users_roles`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_roles_email_address_unique` (`email_address`);
+  ADD UNIQUE KEY `users_roles_email_address_unique` (`email_address`),
+  ADD KEY `users_roles_role_id_foreign` (`role_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -218,19 +245,29 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users_roles`
 --
 ALTER TABLE `users_roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `users_roles`
+--
+ALTER TABLE `users_roles`
+  ADD CONSTRAINT `users_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
